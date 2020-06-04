@@ -14,7 +14,14 @@ class App extends Component {
   };
 
   switchNameHandler = () => {
-    this.state.persons[1].name = 'Emmanuel';
+    /// DONT DO THIS REACT WILL NOT REACOGNIZE IT : this.state.persons[1].name = 'Emmanuel';
+    this.setState( {
+      persons: [
+        {name: 'Tapiwa', age: 36},
+        {name: 'Emammuel', age: 29},
+        {name: 'Stephenie', age: 26},
+      ]
+    })
   }
   
   render() {
