@@ -13,9 +13,9 @@ class App extends Component {
     otherState: 'Some other value'
   };
 
-   switchNameHandler = (newName) => {
-    this.state.persons[1].name = 'Emmanuel';
-    /// DONT DO THIS REACT WILL NOT REACOGNIZE IT : this.state.persons[1].name = 'Emmanuel';
+  switchNameHandler = (newName) => {
+    //this.state.persons[1].name = 'Emmanuel';
+    //DONT DO THIS REACT WILL NOT REACOGNIZE IT : this.state.persons[1].name = 'Emmanuel';
     this.setState( {
       persons: [
         {name: newName, age: 36},
@@ -23,6 +23,16 @@ class App extends Component {
         {name: 'Stephenie', age: 26},
       ]
     })
+  }
+
+  nameChangedHandler = (event) => {
+    this.setState( {
+      persons: [
+        {name: 'Tapiwa', age: 36},
+        {name: event.target. value, age: 29},
+        {name: 'Stephenie', age: 26},
+      ]
+    } )
   }
 
 
@@ -35,7 +45,7 @@ class App extends Component {
         {/* not recomended the () => this.switchNameHandler('Tapiwa Divine!!') can be in efficient use bind synatax on line 38 */}
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
         <Person 
-        name={this.state.persons[1].name} age={this.state.persons[1].age} click={this.switchNameHandler.bind(this, 'Tapie')}/>
+        name={this.state.persons[1].name} age={this.state.persons[1].age} click={this.switchNameHandler.bind(this, 'Tapie')} changed={this.nameChangedHandler}/>
         <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
       </div>
       //React.createElement('div', {className: 'App'}, React.createElement('H1', null, 'Does this work now?'))
