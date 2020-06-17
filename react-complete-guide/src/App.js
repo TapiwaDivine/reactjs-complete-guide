@@ -37,11 +37,21 @@ class App extends Component {
 
 
   render() {
+    const btnStyle = {
+      backgroundColor: 'red',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer',
+    }
+
     return (
       <div className="App">
         <h1>Hi, i am a  React App</h1>
         <p>This is really working!!</p>
-        <button onClick={() => this.switchNameHandler('Tapiwa Divine!!')}>Switch Name</button> 
+        <button
+          style={btnStyle} 
+          onClick={() => this.switchNameHandler('Tapiwa Divine!!')}>Switch Name</button> 
         {/* not recomended the () => this.switchNameHandler('Tapiwa Divine!!') can be in efficient use bind synatax on line 38 */}
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
         <Person 
